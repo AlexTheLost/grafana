@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import formatDuration from 'date-fns/formatDuration';
 import { SelectableValue, parseDuration } from '@grafana/data';
-import { ButtonSelect } from '../Dropdown/ButtonSelect';
+// import { ButtonSelect } from '../Dropdown/ButtonSelect';
 import { ButtonGroup, ToolbarButton, ToolbarButtonVariant } from '../Button';
 import { selectors } from '@grafana/e2e-selectors';
 
 // Default intervals used in the refresh picker component
 export const defaultIntervals = ['5s', '10s', '30s', '1m', '5m', '15m', '30m', '1h', '2h', '1d'];
-const offLabel = 'Auto refresh turned off. Choose refresh time interval';
+// const offLabel = 'Auto refresh turned off. Choose refresh time interval';
 
 export interface Props {
   intervals?: string[];
@@ -54,7 +54,8 @@ export class RefreshPicker extends PureComponent<Props> {
   }
 
   render() {
-    const { onRefresh, intervals, tooltip, value, text, isLoading, noIntervalPicker, width } = this.props;
+    // const { onRefresh, intervals, tooltip, value, text, isLoading, noIntervalPicker, width } = this.props;
+    const { onRefresh, intervals, tooltip, value, text, isLoading, width } = this.props;
 
     const currentValue = value || '';
     const variant = this.getVariant();
@@ -78,7 +79,7 @@ export class RefreshPicker extends PureComponent<Props> {
         >
           {text}
         </ToolbarButton>
-        {!noIntervalPicker && (
+        {/* {!noIntervalPicker && (
           <ButtonSelect
             value={selectedValue}
             options={options}
@@ -91,7 +92,7 @@ export class RefreshPicker extends PureComponent<Props> {
                 : `Choose refresh time interval with current interval ${selectedValue.ariaLabel} selected`
             }
           />
-        )}
+        )} */}
       </ButtonGroup>
     );
   }
@@ -108,10 +109,19 @@ export function intervalsToOptions({ intervals = defaultIntervals }: { intervals
     const value = duration[key];
     duration[key] = Number(value);
 
+    let lable = '';
+    if (key === 'seconds') {
+      lable = `${value}с`;
+    } else if (key === 'minutes') {
+      lable = `${value}м`;
+    } else if (key === 'hours') {
+      lable = `${value}ч`;
+    }
+
     const ariaLabel = formatDuration(duration);
 
     return {
-      label: interval,
+      label: lable,
       value: interval,
       ariaLabel: ariaLabel,
     };

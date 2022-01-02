@@ -107,7 +107,7 @@ function renderIcon(icon: IconName | React.ReactNode) {
   }
 
   if (isString(icon)) {
-    return <Icon name={icon as IconName} size={'lg'} />;
+    return <Icon name={icon as IconName} size={'xl'} />;
   }
 
   return icon;

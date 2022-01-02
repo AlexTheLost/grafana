@@ -210,7 +210,7 @@ func (hs *HTTPServer) LoginPost(c *models.ReqContext) response.Response {
 	err := bus.DispatchCtx(c.Req.Context(), authQuery)
 	authModule = authQuery.AuthModule
 	if err != nil {
-		resp = response.Error(401, "Invalid username or password", err)
+		resp = response.Error(401, "Неправильное имя пользователя или пароль", err)
 		if errors.Is(err, login.ErrInvalidCredentials) || errors.Is(err, login.ErrTooManyLoginAttempts) || errors.Is(err,
 			models.ErrUserNotFound) {
 			return resp
@@ -241,7 +241,7 @@ func (hs *HTTPServer) LoginPost(c *models.ReqContext) response.Response {
 	}
 
 	result := map[string]interface{}{
-		"message": "Logged in",
+		"message": "Вы вошли в систему",
 	}
 
 	if redirectTo := c.GetCookie("redirect_to"); len(redirectTo) > 0 {

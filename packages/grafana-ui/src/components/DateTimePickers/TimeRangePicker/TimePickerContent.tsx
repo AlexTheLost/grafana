@@ -9,10 +9,10 @@ import { mapOptionToTimeRange, mapRangeToTimeOption } from './mapper';
 import { TimePickerTitle } from './TimePickerTitle';
 import { TimeRangeForm } from './TimeRangeForm';
 import { TimeRangeList } from './TimeRangeList';
-import { TimePickerFooter } from './TimePickerFooter';
+// import { TimePickerFooter } from './TimePickerFooter';
 import { getFocusStyles } from '../../../themes/mixins';
 import { selectors } from '@grafana/e2e-selectors';
-import { FilterInput } from '../..';
+// import { FilterInput } from '../..';
 
 const getStyles = stylesFactory((theme: GrafanaTheme2, isReversed, hideQuickRanges, isContainerTall) => {
   return {
@@ -91,25 +91,25 @@ const getNarrowScreenStyles = stylesFactory((theme: GrafanaTheme2) => {
   };
 });
 
-const getFullScreenStyles = stylesFactory((theme: GrafanaTheme2, hideQuickRanges?: boolean) => {
-  return {
-    container: css`
-      padding-top: 9px;
-      padding-left: 11px;
-      padding-right: ${!hideQuickRanges ? '20%' : '11px'};
-    `,
-    title: css`
-      margin-bottom: 11px;
-    `,
-    recent: css`
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-top: ${theme.spacing(1)};
-    `,
-  };
-});
+// const getFullScreenStyles = stylesFactory((theme: GrafanaTheme2, hideQuickRanges?: boolean) => {
+//   return {
+//     container: css`
+//       padding-top: 9px;
+//       padding-left: 11px;
+//       padding-right: ${!hideQuickRanges ? '20%' : '11px'};
+//     `,
+//     title: css`
+//       margin-bottom: 11px;
+//     `,
+//     recent: css`
+//       flex-grow: 1;
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: flex-end;
+//       padding-top: ${theme.spacing(1)};
+//     `,
+//   };
+// });
 
 const getEmptyListStyles = stylesFactory((theme: GrafanaTheme2) => {
   return {
@@ -157,27 +157,29 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = (p
   const {
     quickOptions = [],
     isReversed,
-    isFullscreen,
-    hideQuickRanges,
+    // isFullscreen,
+    // hideQuickRanges,
     timeZone,
-    fiscalYearStartMonth,
+    // fiscalYearStartMonth,
     value,
     onChange,
     history,
-    showHistory,
+    // showHistory,
     className,
-    hideTimeZone,
-    onChangeTimeZone,
-    onChangeFiscalYearStartMonth,
+    // hideTimeZone,
+    // onChangeTimeZone,
+    // onChangeFiscalYearStartMonth,
   } = props;
-  const isHistoryEmpty = !history?.length;
-  const isContainerTall =
-    (isFullscreen && showHistory) || (!isFullscreen && ((showHistory && !isHistoryEmpty) || !hideQuickRanges));
+  // const isHistoryEmpty = !history?.length;
+  // const isContainerTall =
+  //   (isFullscreen && showHistory) || (!isFullscreen && ((showHistory && !isHistoryEmpty) || !hideQuickRanges));
   const theme = useTheme2();
-  const styles = getStyles(theme, isReversed, hideQuickRanges, isContainerTall);
+  // const styles = getStyles(theme, isReversed, hideQuickRanges, isContainerTall);
+  const styles = getStyles(theme, isReversed, true, true);
   const historyOptions = mapToHistoryOptions(history, timeZone);
   const timeOption = useTimeOption(value.raw, quickOptions);
-  const [searchTerm, setSearchQuery] = useState('');
+  // const [searchTerm, setSearchQuery] = useState('');
+  const [searchTerm] = useState('');
 
   const filteredQuickOptions = quickOptions.filter((o) => o.display.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -188,9 +190,10 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = (p
   return (
     <div id="TimePickerContent" className={cx(styles.container, className)}>
       <div className={styles.body}>
-        {(!isFullscreen || !hideQuickRanges) && (
-          <div className={styles.rightSide}>
-            <div className={styles.timeRangeFilter}>
+        {/* {(!isFullscreen || !hideQuickRanges) && ( */}
+        {
+          <div className={styles.leftSide}>
+            {/* <div className={styles.timeRangeFilter}>
               <FilterInput
                 width={0}
                 autoFocus={true}
@@ -198,29 +201,31 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = (p
                 onChange={setSearchQuery}
                 placeholder={'Search quick ranges'}
               />
-            </div>
+            </div> */}
             <CustomScrollbar>
-              {!isFullscreen && <NarrowScreenForm {...props} historyOptions={historyOptions} />}
-              {!hideQuickRanges && (
+              {/* {!isFullscreen && <NarrowScreenForm {...props} historyOptions={historyOptions} />} */}
+              <NarrowScreenForm {...props} historyOptions={historyOptions} showHistory={false} />
+              {/* {!hideQuickRanges && (
                 <TimeRangeList options={filteredQuickOptions} onChange={onChangeTimeOption} value={timeOption} />
-              )}
+              )} */}
+              <TimeRangeList options={filteredQuickOptions} onChange={onChangeTimeOption} value={timeOption} />
             </CustomScrollbar>
           </div>
-        )}
-        {isFullscreen && (
+        }
+        {/* {isFullscreen && (
           <div className={styles.leftSide}>
             <FullScreenForm {...props} historyOptions={historyOptions} />
           </div>
-        )}
+        )} */}
       </div>
-      {!hideTimeZone && isFullscreen && (
+      {/* {!hideTimeZone && isFullscreen && (
         <TimePickerFooter
           timeZone={timeZone}
           fiscalYearStartMonth={fiscalYearStartMonth}
           onChangeTimeZone={onChangeTimeZone}
           onChangeFiscalYearStartMonth={onChangeFiscalYearStartMonth}
         />
-      )}
+      )} */}
     </div>
   );
 };
@@ -233,16 +238,17 @@ export const TimePickerContent: React.FC<Props> = (props) => {
 };
 
 const NarrowScreenForm: React.FC<FormProps> = (props) => {
-  const { value, hideQuickRanges, onChange, timeZone, historyOptions = [], showHistory } = props;
+  // const { value, hideQuickRanges, onChange, timeZone, historyOptions = [], showHistory } = props;
+  const { value, hideQuickRanges, onChange, timeZone } = props;
   const theme = useTheme2();
   const styles = getNarrowScreenStyles(theme);
   const isAbsolute = isDateTime(value.raw.from) || isDateTime(value.raw.to);
   const [collapsedFlag, setCollapsedFlag] = useState(!isAbsolute);
   const collapsed = hideQuickRanges ? false : collapsedFlag;
 
-  const onChangeTimeOption = (timeOption: TimeOption) => {
-    return onChange(mapOptionToTimeRange(timeOption));
-  };
+  // const onChangeTimeOption = (timeOption: TimeOption) => {
+  //   return onChange(mapOptionToTimeRange(timeOption));
+  // };
 
   return (
     <fieldset>
@@ -258,7 +264,7 @@ const NarrowScreenForm: React.FC<FormProps> = (props) => {
           aria-expanded={!collapsed}
           aria-controls="expanded-timerange"
         >
-          <TimePickerTitle>Absolute time range</TimePickerTitle>
+          <TimePickerTitle>Указать диапазон</TimePickerTitle>
           {!hideQuickRanges && <Icon name={!collapsed ? 'angle-up' : 'angle-down'} />}
         </button>
       </div>
@@ -267,56 +273,57 @@ const NarrowScreenForm: React.FC<FormProps> = (props) => {
           <div className={styles.form}>
             <TimeRangeForm value={value} onApply={onChange} timeZone={timeZone} isFullscreen={false} />
           </div>
-          {showHistory && (
+          {/* {showHistory && (
             <TimeRangeList
               title="Recently used absolute ranges"
               options={historyOptions}
               onChange={onChangeTimeOption}
               placeholderEmpty={null}
             />
-          )}
+          )} */}
         </div>
       )}
     </fieldset>
   );
 };
 
-const FullScreenForm: React.FC<FormProps> = (props) => {
-  const { onChange, value, timeZone, fiscalYearStartMonth, isReversed, historyOptions } = props;
-  const theme = useTheme2();
-  const styles = getFullScreenStyles(theme, props.hideQuickRanges);
-  const onChangeTimeOption = (timeOption: TimeOption) => {
-    return onChange(mapOptionToTimeRange(timeOption));
-  };
+// const FullScreenForm: React.FC<FormProps> = (props) => {
+//   // const { onChange, value, timeZone, fiscalYearStartMonth, isReversed, historyOptions } = props;
+//   const { onChange, value, timeZone, fiscalYearStartMonth, isReversed } = props;
+//   const theme = useTheme2();
+//   const styles = getFullScreenStyles(theme, props.hideQuickRanges);
+//   // const onChangeTimeOption = (timeOption: TimeOption) => {
+//   //   return onChange(mapOptionToTimeRange(timeOption));
+//   // };
 
-  return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.title} data-testid={selectors.components.TimePicker.absoluteTimeRangeTitle}>
-          <TimePickerTitle>Absolute time range</TimePickerTitle>
-        </div>
-        <TimeRangeForm
-          value={value}
-          timeZone={timeZone}
-          fiscalYearStartMonth={fiscalYearStartMonth}
-          onApply={onChange}
-          isFullscreen={true}
-          isReversed={isReversed}
-        />
-      </div>
-      {props.showHistory && (
-        <div className={styles.recent}>
-          <TimeRangeList
-            title="Recently used absolute ranges"
-            options={historyOptions || []}
-            onChange={onChangeTimeOption}
-            placeholderEmpty={<EmptyRecentList />}
-          />
-        </div>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div className={styles.container}>
+//         <div className={styles.title} data-testid={selectors.components.TimePicker.absoluteTimeRangeTitle}>
+//           <TimePickerTitle>Указать диапазон</TimePickerTitle>
+//         </div>
+//         <TimeRangeForm
+//           value={value}
+//           timeZone={timeZone}
+//           fiscalYearStartMonth={fiscalYearStartMonth}
+//           onApply={onChange}
+//           isFullscreen={true}
+//           isReversed={isReversed}
+//         />
+//       </div>
+//       {/* {props.showHistory && (
+//         <div className={styles.recent}>
+//           <TimeRangeList
+//             title="Recently used absolute ranges"
+//             options={historyOptions || []}
+//             onChange={onChangeTimeOption}
+//             placeholderEmpty={<EmptyRecentList />}
+//           />
+//         </div>
+//       )} */}
+//     </>
+//   );
+// };
 
 const EmptyRecentList = memo(() => {
   const theme = useTheme2();

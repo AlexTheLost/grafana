@@ -100,6 +100,7 @@ export const getAvailableIcons = () =>
     'heart',
     'heart-break',
     'history',
+    'home',
     'home-alt',
     'hourglass',
     'import',

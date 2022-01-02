@@ -327,7 +327,7 @@ export class CloudMonitoringVariableQueryEditor extends PureComponent<Props, Var
           <span className="gf-form-label width-10 query-keyword">Query Type</span>
           <div className="gf-form-select-wrapper max-width-12">
             <select className="gf-form-input">
-              <option>Loading...</option>
+              <option>Загрузка...</option>
             </select>
           </div>
         </div>

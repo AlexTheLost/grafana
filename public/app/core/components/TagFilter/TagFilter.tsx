@@ -78,7 +78,7 @@ export const TagFilter: FC<Props> = ({
     inputId,
     isMulti: true,
     loadOptions: debouncedLoadOptions,
-    loadingMessage: 'Loading...',
+    loadingMessage: 'Загрузка...',
     noOptionsMessage: 'No tags found',
     onChange: onTagChange,
     placeholder,

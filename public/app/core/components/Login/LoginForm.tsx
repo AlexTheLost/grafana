@@ -16,7 +16,6 @@ interface Props {
 
 const wrapperStyles = css`
   width: 100%;
-  padding-bottom: 16px;
 `;
 
 export const submitButton = css`
@@ -30,25 +29,26 @@ export const LoginForm: FC<Props> = ({ children, onSubmit, isLoggingIn, password
       <Form onSubmit={onSubmit} validateOn="onChange">
         {({ register, errors }) => (
           <>
-            <Field label="Email or username" invalid={!!errors.user} error={errors.user?.message}>
+            <Field label={undefined} invalid={!!errors.user} error={errors.user?.message}>
               <Input
-                {...register('user', { required: 'Email or username is required' })}
+                {...register('user', { required: 'Необходимо ввести имя пользователя' })}
                 autoFocus
                 autoCapitalize="none"
-                placeholder={loginHint}
+                placeholder={'Имя пользователя'}
                 aria-label={selectors.pages.Login.username}
               />
             </Field>
-            <Field label="Password" invalid={!!errors.password} error={errors.password?.message}>
+            <Field label={undefined} invalid={!!errors.password} error={errors.password?.message}>
               <PasswordField
                 id="current-password"
                 autoComplete="current-password"
-                passwordHint={passwordHint}
-                {...register('password', { required: 'Password is required' })}
+                passwordHint={'Пароль'}
+                {...register('password', { required: 'Необходимо ввести пароль' })}
               />
             </Field>
+            <br></br>
             <Button aria-label={selectors.pages.Login.submit} className={submitButton} disabled={isLoggingIn}>
-              {isLoggingIn ? 'Logging in...' : 'Log in'}
+              {isLoggingIn ? 'Вход...' : 'Войти'}
             </Button>
             {children}
           </>

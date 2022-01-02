@@ -60,7 +60,7 @@ export function UnifiedAlertList(props: PanelProps<UnifiedAlertListOptions>) {
   return (
     <CustomScrollbar autoHeightMin="100%" autoHeightMax="100%">
       <div className={styles.container}>
-        {dispatched && loading && !haveResults && <LoadingPlaceholder text="Loading..." />}
+        {dispatched && loading && !haveResults && <LoadingPlaceholder text="Загрузка..." />}
         {noAlertsMessage && <div className={styles.noAlertsMessage}>{noAlertsMessage}</div>}
         <section>
           <ol className={styles.alertRuleList}>

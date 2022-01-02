@@ -169,7 +169,7 @@ export class AsyncSelect<T> extends PureComponent<AsyncProps<T>> {
   static defaultProps: Partial<AsyncProps<any>> = {
     className: '',
     components: {},
-    loadingMessage: () => 'Loading...',
+    loadingMessage: () => 'Загрузка...',
     isDisabled: false,
     isClearable: false,
     isMulti: false,

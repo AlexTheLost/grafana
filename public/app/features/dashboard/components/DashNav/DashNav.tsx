@@ -4,7 +4,7 @@ import { connect, ConnectedProps } from 'react-redux';
 // Utils & Services
 import { playlistSrv } from 'app/features/playlist/PlaylistSrv';
 // Components
-import { DashNavButton } from './DashNavButton';
+// import { DashNavButton } from './DashNavButton';
 import { DashNavTimeControls } from './DashNavTimeControls';
 import { ButtonGroup, ModalsController, ToolbarButton, PageToolbar } from '@grafana/ui';
 import { locationUtil, textUtil } from '@grafana/data';
@@ -13,7 +13,7 @@ import { updateTimeZoneForSession } from 'app/features/profile/state/reducers';
 // Types
 import { DashboardModel } from '../../state';
 import { KioskMode } from 'app/types';
-import { ShareModal } from 'app/features/dashboard/components/ShareModal';
+// import { ShareModal } from 'app/features/dashboard/components/ShareModal';
 import { SaveDashboardModalProxy } from 'app/features/dashboard/components/SaveDashboard/SaveDashboardModalProxy';
 import { locationService } from '@grafana/runtime';
 import { toggleKioskMode } from 'app/core/navigation/kiosk';
@@ -107,48 +107,49 @@ class DashNav extends PureComponent<Props> {
   }
 
   renderLeftActionsButton() {
-    const { dashboard, kioskMode } = this.props;
-    const { canStar, canShare, isStarred } = dashboard.meta;
+    // const { dashboard, kioskMode } = this.props;
+    const { kioskMode } = this.props;
+    // const { canStar, canShare, isStarred } = dashboard.meta;
     const buttons: ReactNode[] = [];
 
     if (kioskMode !== KioskMode.Off || this.isPlaylistRunning()) {
       return [];
     }
 
-    if (canStar) {
-      let desc = isStarred ? 'Unmark as favorite' : 'Mark as favorite';
-      buttons.push(
-        <DashNavButton
-          tooltip={desc}
-          icon={isStarred ? 'favorite' : 'star'}
-          iconType={isStarred ? 'mono' : 'default'}
-          iconSize="lg"
-          onClick={this.onStarDashboard}
-          key="button-star"
-        />
-      );
-    }
+    // if (canStar) {
+    //   let desc = isStarred ? 'Unmark as favorite' : 'Mark as favorite';
+    //   buttons.push(
+    //     <DashNavButton
+    //       tooltip={desc}
+    //       icon={isStarred ? 'favorite' : 'star'}
+    //       iconType={isStarred ? 'mono' : 'default'}
+    //       iconSize="lg"
+    //       onClick={this.onStarDashboard}
+    //       key="button-star"
+    //     />
+    //   );
+    // }
 
-    if (canShare) {
-      let desc = 'Share dashboard or panel';
-      buttons.push(
-        <ModalsController key="button-share">
-          {({ showModal, hideModal }) => (
-            <DashNavButton
-              tooltip={desc}
-              icon="share-alt"
-              iconSize="lg"
-              onClick={() => {
-                showModal(ShareModal, {
-                  dashboard,
-                  onDismiss: hideModal,
-                });
-              }}
-            />
-          )}
-        </ModalsController>
-      );
-    }
+    // if (canShare) {
+    //   let desc = 'Share dashboard or panel';
+    //   buttons.push(
+    //     <ModalsController key="button-share">
+    //       {({ showModal, hideModal }) => (
+    //         <DashNavButton
+    //           tooltip={desc}
+    //           icon="share-alt"
+    //           iconSize="lg"
+    //           onClick={() => {
+    //             showModal(ShareModal, {
+    //               dashboard,
+    //               onDismiss: hideModal,
+    //             });
+    //           }}
+    //         />
+    //       )}
+    //     </ModalsController>
+    //   );
+    // }
 
     this.addCustomContent(customLeftActions, buttons);
     return buttons;
@@ -234,7 +235,7 @@ class DashNav extends PureComponent<Props> {
     this.addCustomContent(customRightActions, buttons);
 
     buttons.push(this.renderTimeControls());
-    buttons.push(tvButton);
+    // buttons.push(tvButton);
     return buttons;
   }
 

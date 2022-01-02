@@ -488,6 +488,8 @@ func (hs *HTTPServer) GetHomeDashboard(c *models.ReqContext) response.Response {
 
 	hs.addGettingStartedPanelToHomeDashboard(c, dash.Dashboard)
 
+	fmt.Printf("%#v\n", dash)
+
 	return response.JSON(200, &dash)
 }
 

@@ -107,7 +107,7 @@ const NestedRow: React.FC<NestedRowProps> = ({ row, selectedRows, level, request
       <FadeTransition visible={rowStatus === 'loading'}>
         <tr>
           <td className={cx(styles.cell, styles.loadingCell)} colSpan={3}>
-            <LoadingPlaceholder text="Loading..." className={styles.spinner} />
+            <LoadingPlaceholder text="Загрузка..." className={styles.spinner} />
           </td>
         </tr>
       </FadeTransition>

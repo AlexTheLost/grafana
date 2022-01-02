@@ -25,4 +25,5 @@ export const PanelHeaderMenuWrapper: FC<Props> = ({ show, onClose, panel, dashbo
       </PanelHeaderMenuProvider>
     </ClickOutsideWrapper>
   );
+  return null;
 };

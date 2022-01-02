@@ -19,7 +19,7 @@ export const PlacementEditor: FC<StandardEditorProps<any, CanvasEditorOptions, P
   useObservable(settings?.scene ? settings.scene.moved : new Subject());
 
   if (!settings) {
-    return <div>Loading...</div>;
+    return <div>Загрузка...</div>;
   }
 
   const element = settings.element;

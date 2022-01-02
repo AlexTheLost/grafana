@@ -6,7 +6,7 @@ export interface Props {
   text?: string;
 }
 
-export const Loader = ({ text = 'Loading...' }: Props) => {
+export const Loader = ({ text = 'Загрузка...' }: Props) => {
   return (
     <Page>
       <div className="page-loader-wrapper">

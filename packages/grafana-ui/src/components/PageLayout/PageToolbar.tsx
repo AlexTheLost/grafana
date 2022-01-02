@@ -7,7 +7,7 @@ import { Icon } from '../Icon/Icon';
 import { styleMixins } from '../../themes';
 import { IconButton } from '../IconButton/IconButton';
 import { selectors } from '@grafana/e2e-selectors';
-import { Link } from '..';
+// import { Link } from '..';
 import { getFocusStyles } from '../../themes/mixins';
 
 export interface Props {
@@ -34,6 +34,7 @@ export const PageToolbar: FC<Props> = React.memo(
      * for mobile menu icon. This logic hopefylly can be changed when we move to a full react
      * app and change how the app side menu & mobile menu is rendered.
      */
+    isFullscreen = true;
     const mainStyle = cx(
       'page-toolbar',
       styles.toolbar,
@@ -45,16 +46,23 @@ export const PageToolbar: FC<Props> = React.memo(
 
     return (
       <div className={mainStyle}>
-        {pageIcon && !onGoBack && (
+        {/* {pageIcon && !onGoBack && ( */}
+        {!onGoBack && (
           <div className={styles.pageIcon}>
-            <Icon name={pageIcon} size="lg" aria-hidden />
+            <a href="/">
+              {/* <Icon name={pageIcon} size="lg" aria-hidden /> */}
+              {/* <Icon name={'home'} size="xxl" aria-hidden /> */}
+              {/* <Icon name={'apps'} size="xl" aria-hidden /> */}
+              {/* <Icon name={'list-ui-alt'} size="xxl" aria-hidden /> */}
+              <Icon name={'list-ul'} size="xxl" aria-hidden />
+            </a>
           </div>
         )}
         {onGoBack && (
           <div className={styles.pageIcon}>
             <IconButton
               name="arrow-left"
-              tooltip="Go back (Esc)"
+              tooltip="Назад (Esc)"
               tooltipPlacement="bottom"
               size="xxl"
               surface="dashboard"
@@ -64,7 +72,7 @@ export const PageToolbar: FC<Props> = React.memo(
           </div>
         )}
         <nav aria-label="Search links" className={styles.navElement}>
-          {parent && parentHref && (
+          {/* {parent && parentHref && (
             <>
               <Link
                 aria-label={`Search dashboard in the ${parent} folder`}
@@ -79,21 +87,19 @@ export const PageToolbar: FC<Props> = React.memo(
                 </span>
               )}
             </>
-          )}
+          )} */}
 
-          {title && titleHref && (
-            <h1 className={styles.h1Styles}>
-              <Link
-                aria-label="Search dashboard by name"
-                className={cx(styles.titleText, styles.titleLink)}
-                href={titleHref}
-              >
-                {title}
-              </Link>
-            </h1>
-          )}
-          {title && !titleHref && <h1 className={styles.titleText}>{title}</h1>}
+          {/* {title && titleHref && (
+            <Link aria-label="Искать по имени" className={styles.pageIcon} href={titleHref}>
+              <Icon name={'search'} size="xl" aria-hidden />
+            </Link>
+          )} */}
+
+          <h1 className={cx(styles.titleText, styles.titleLink, styles.pageIcon)}>{title}</h1>
+
+          {/* {title && !titleHref && <h1 className={styles.titleText}>{title}</h1>} */}
         </nav>
+
         {leftItems?.map((child, index) => (
           <div className={styles.leftActionItem} key={index}>
             {child}
@@ -147,13 +153,20 @@ const getStyles = (theme: GrafanaTheme2) => {
     spacer: css`
       flex-grow: 1;
     `,
+    // pageIcon: css`
+    //   display: none;
+    //   @media ${styleMixins.mediaUp(theme.v1.breakpoints.md)} {
+    //     display: flex;
+    //     padding-right: ${theme.spacing(1)};
+    //     align-items: center;
+    //     margin-right: 10px;
+    //   }
+    // `,
     pageIcon: css`
-      display: none;
-      @media ${styleMixins.mediaUp(theme.v1.breakpoints.md)} {
-        display: flex;
-        padding-right: ${theme.spacing(1)};
-        align-items: center;
-      }
+      display: flex;
+      padding-right: ${theme.spacing(1)};
+      align-items: center;
+      margin-right: 10px;
     `,
     titleWrapper: css`
       display: flex;

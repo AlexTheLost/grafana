@@ -15,5 +15,5 @@ export default {
 };
 
 export const basic = () => {
-  return <LoadingPlaceholder text="Loading..." />;
+  return <LoadingPlaceholder text="Загрузка..." />;
 };

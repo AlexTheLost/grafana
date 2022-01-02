@@ -15,8 +15,8 @@ import {
   isDateTime,
   rangeUtil,
   GrafanaTheme,
-  dateTimeFormat,
-  timeZoneFormatUserFriendly,
+  // dateTimeFormat,
+  // timeZoneFormatUserFriendly,
   TimeRange,
   TimeZone,
   dateMath,
@@ -57,7 +57,7 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
     value,
     onMoveBackward,
     onMoveForward,
-    onZoom,
+    // onZoom,
     timeZone,
     fiscalYearStartMonth,
     timeSyncButton,
@@ -103,7 +103,8 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
         />
       )}
 
-      <Tooltip content={<TimePickerTooltip timeRange={value} timeZone={timeZone} />} placement="bottom">
+      {/* <Tooltip content={<TimePickerTooltip timeRange={value} timeZone={timeZone} />} placement="bottom"> */}
+      <Tooltip content={<div></div>} placement="bottom">
         <ToolbarButton
           data-testid={selectors.components.TimePicker.openButton}
           aria-label={`Time range picker with current time range ${formattedRange(value, timeZone)} selected`}
@@ -116,6 +117,7 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
           <TimePickerButtonLabel {...props} />
         </ToolbarButton>
       </Tooltip>
+
       {isOpen && (
         <FocusScope contain autoFocus restoreFocus>
           <section ref={ref} {...overlayProps}>
@@ -147,34 +149,34 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
         />
       )}
 
-      <Tooltip content={ZoomOutTooltip} placement="bottom">
+      {/* <Tooltip content={ZoomOutTooltip} placement="bottom">
         <ToolbarButton aria-label="Zoom out time range" onClick={onZoom} icon="search-minus" variant={variant} />
-      </Tooltip>
+      </Tooltip> */}
     </ButtonGroup>
   );
 }
 
-const ZoomOutTooltip = () => (
-  <>
-    Time range zoom out <br /> CTRL+Z
-  </>
-);
+// const ZoomOutTooltip = () => (
+//   <>
+//     Time range zoom out <br /> CTRL+Z
+//   </>
+// );
 
-const TimePickerTooltip = ({ timeRange, timeZone }: { timeRange: TimeRange; timeZone?: TimeZone }) => {
-  const theme = useTheme();
-  const styles = getLabelStyles(theme);
+// const TimePickerTooltip = ({ timeRange, timeZone }: { timeRange: TimeRange; timeZone?: TimeZone }) => {
+//   const theme = useTheme();
+//   const styles = getLabelStyles(theme);
 
-  return (
-    <>
-      {dateTimeFormat(timeRange.from, { timeZone })}
-      <div className="text-center">to</div>
-      {dateTimeFormat(timeRange.to, { timeZone })}
-      <div className="text-center">
-        <span className={styles.utc}>{timeZoneFormatUserFriendly(timeZone)}</span>
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       {dateTimeFormat(timeRange.from, { timeZone })}
+//       <div className="text-center">to</div>
+//       {dateTimeFormat(timeRange.to, { timeZone })}
+//       <div className="text-center">
+//         <span className={styles.utc}>{timeZoneFormatUserFriendly(timeZone)}</span>
+//       </div>
+//     </>
+//   );
+// };
 
 type LabelProps = Pick<TimeRangePickerProps, 'hideText' | 'value' | 'timeZone'>;
 
@@ -189,7 +191,7 @@ export const TimePickerButtonLabel = memo<LabelProps>(({ hideText, value, timeZo
   return (
     <span className={styles.container}>
       <span>{formattedRange(value, timeZone)}</span>
-      <span className={styles.utc}>{rangeUtil.describeTimeRangeAbbreviation(value, timeZone)}</span>
+      {/* <span className={styles.utc}>{rangeUtil.describeTimeRangeAbbreviation(value, timeZone)}</span> */}
     </span>
   );
 });

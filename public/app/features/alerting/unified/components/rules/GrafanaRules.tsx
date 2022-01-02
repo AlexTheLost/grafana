@@ -23,7 +23,7 @@ export const GrafanaRules: FC<Props> = ({ namespaces, expandAll }) => {
     <section className={styles.wrapper}>
       <div className={styles.sectionHeader}>
         <h5>Grafana</h5>
-        {loading ? <LoadingPlaceholder className={styles.loader} text="Loading..." /> : <div />}
+        {loading ? <LoadingPlaceholder className={styles.loader} text="Загрузка..." /> : <div />}
       </div>
 
       {namespaces?.map((namespace) =>
