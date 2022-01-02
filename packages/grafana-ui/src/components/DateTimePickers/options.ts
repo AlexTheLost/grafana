@@ -4,7 +4,7 @@ export const quickOptions: TimeOption[] = [
   { from: 'now-5m', to: 'now', display: 'Последние 5 минут' },
   { from: 'now-15m', to: 'now', display: 'Последние 15 минут' },
   { from: 'now-30m', to: 'now', display: 'Последние 30 минут' },
-  { from: 'now-1h', to: 'now', display: 'Последние 1 час' },
+  { from: 'now-1h', to: 'now', display: 'Последний 1 час' },
   { from: 'now-3h', to: 'now', display: 'Последние 3 часа' },
   { from: 'now-6h', to: 'now', display: 'Последние 6 часов' },
   { from: 'now-12h', to: 'now', display: 'Последние 12 часов' },

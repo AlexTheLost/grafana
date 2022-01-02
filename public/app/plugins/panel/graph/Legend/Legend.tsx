@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import { TimeSeries } from 'app/core/core';
 import { CustomScrollbar, Icon } from '@grafana/ui';
 import { LegendStat, LegendItem, LEGEND_STATS } from './LegendSeriesItem';
+import { css } from '@emotion/css';
 
 interface LegendProps {
   seriesList: TimeSeries[];
@@ -262,6 +263,21 @@ class LegendTable extends PureComponent<Partial<LegendComponentProps>> {
       return null;
     }
 
+    const legendStatLocalize = function (statName: string): string {
+      if (statName === 'min') {
+        return 'мин';
+      } else if (statName === 'max') {
+        return 'макc';
+      } else if (statName === 'avg') {
+        return 'среднее';
+      } else if (statName === 'current') {
+        return 'текущее';
+      } else if (statName === 'total') {
+        return 'накопленное';
+      }
+      return '';
+    };
+
     return (
       <table>
         <colgroup>
@@ -275,6 +291,7 @@ class LegendTable extends PureComponent<Partial<LegendComponentProps>> {
                 seriesValuesProps[statName] && (
                   <LegendTableHeaderItem
                     key={statName}
+                    statNameRu={legendStatLocalize(statName)}
                     statName={statName}
                     sort={sort}
                     sortDesc={sortDesc}
@@ -305,6 +322,7 @@ class LegendTable extends PureComponent<Partial<LegendComponentProps>> {
 }
 
 interface LegendTableHeaderProps {
+  statNameRu: string;
   statName: LegendStat;
   onClick?: (statName: LegendStat) => void;
 }
@@ -317,10 +335,14 @@ class LegendTableHeaderItem extends PureComponent<LegendTableHeaderProps & Legen
   };
 
   render() {
-    const { statName, sort, sortDesc } = this.props;
+    const { statName, statNameRu, sort, sortDesc } = this.props;
+    const style = css`
+      padding: 0px 2px 0px 15px !important;
+    `;
+
     return (
-      <th className="pointer" onClick={this.onClick}>
-        {statName}
+      <th className={style} onClick={this.onClick}>
+        {statNameRu}
         {sort === statName && <Icon name={sortDesc ? 'angle-down' : 'angle-up'} />}
       </th>
     );
