@@ -10,14 +10,14 @@ interface IntervalsInSeconds {
 }
 
 export enum Interval {
-  Year = 'year',
-  Month = 'month',
-  Week = 'week',
-  Day = 'day',
-  Hour = 'hour',
-  Minute = 'minute',
-  Second = 'second',
-  Millisecond = 'millisecond',
+  Year = 'г',
+  Month = 'мес',
+  Week = 'нед',
+  Day = 'д',
+  Hour = 'ч',
+  Minute = 'мин',
+  Second = 'сек',
+  Millisecond = 'мсек',
 }
 
 const INTERVALS_IN_SECONDS: IntervalsInSeconds = {
@@ -43,13 +43,13 @@ export function toNanoSeconds(size: number, decimals?: DecimalCount): FormattedV
   } else if (Math.abs(size) < 1000000000) {
     return toFixedScaled(size / 1000000, decimals, ' ms');
   } else if (Math.abs(size) < 60000000000) {
-    return toFixedScaled(size / 1000000000, decimals, ' s');
+    return toFixedScaled(size / 1000000000, decimals, ' с');
   } else if (Math.abs(size) < 3600000000000) {
-    return toFixedScaled(size / 60000000000, decimals, ' min');
+    return toFixedScaled(size / 60000000000, decimals, ' м');
   } else if (Math.abs(size) < 86400000000000) {
-    return toFixedScaled(size / 3600000000000, decimals, ' hour');
+    return toFixedScaled(size / 3600000000000, decimals, ' ч');
   } else {
-    return toFixedScaled(size / 86400000000000, decimals, ' day');
+    return toFixedScaled(size / 86400000000000, decimals, ' д');
   }
 }
 
@@ -63,7 +63,7 @@ export function toMicroSeconds(size: number, decimals?: DecimalCount): Formatted
   } else if (Math.abs(size) < 1000000) {
     return toFixedScaled(size / 1000, decimals, ' ms');
   } else {
-    return toFixedScaled(size / 1000000, decimals, ' s');
+    return toFixedScaled(size / 1000000, decimals, ' с');
   }
 }
 
@@ -105,7 +105,7 @@ export function toSeconds(size: number, decimals?: DecimalCount): FormattedValue
 
   // If 0, use s unit instead of ns
   if (size === 0) {
-    return { text: '0', suffix: ' s' };
+    return { text: '0', suffix: ' сек' };
   }
 
   // Less than 1 µs, divide in ns
@@ -122,22 +122,22 @@ export function toSeconds(size: number, decimals?: DecimalCount): FormattedValue
   }
 
   if (Math.abs(size) < 60) {
-    return { text: toFixed(size, decimals), suffix: ' s' };
+    return { text: toFixed(size, decimals), suffix: ' с' };
   } else if (Math.abs(size) < 3600) {
     // Less than 1 hour, divide in minutes
-    return toFixedScaled(size / 60, decimals, ' min');
+    return toFixedScaled(size / 60, decimals, ' м');
   } else if (Math.abs(size) < 86400) {
     // Less than one day, divide in hours
-    return toFixedScaled(size / 3600, decimals, ' hour');
+    return toFixedScaled(size / 3600, decimals, ' ч');
   } else if (Math.abs(size) < 604800) {
     // Less than one week, divide in days
-    return toFixedScaled(size / 86400, decimals, ' day');
+    return toFixedScaled(size / 86400, decimals, ' д');
   } else if (Math.abs(size) < 31536000) {
     // Less than one year, divide in week
-    return toFixedScaled(size / 604800, decimals, ' week');
+    return toFixedScaled(size / 604800, decimals, ' н');
   }
 
-  return toFixedScaled(size / 3.15569e7, decimals, ' year');
+  return toFixedScaled(size / 3.15569e7, decimals, ' г');
 }
 
 export function toMinutes(size: number, decimals?: DecimalCount): FormattedValue {
@@ -146,15 +146,15 @@ export function toMinutes(size: number, decimals?: DecimalCount): FormattedValue
   }
 
   if (Math.abs(size) < 60) {
-    return { text: toFixed(size, decimals), suffix: ' min' };
+    return { text: toFixed(size, decimals), suffix: ' м' };
   } else if (Math.abs(size) < 1440) {
-    return toFixedScaled(size / 60, decimals, ' hour');
+    return toFixedScaled(size / 60, decimals, ' ч');
   } else if (Math.abs(size) < 10080) {
-    return toFixedScaled(size / 1440, decimals, ' day');
+    return toFixedScaled(size / 1440, decimals, ' д');
   } else if (Math.abs(size) < 604800) {
-    return toFixedScaled(size / 10080, decimals, ' week');
+    return toFixedScaled(size / 10080, decimals, ' н');
   } else {
-    return toFixedScaled(size / 5.25948e5, decimals, ' year');
+    return toFixedScaled(size / 5.25948e5, decimals, ' г');
   }
 }
 
@@ -164,13 +164,13 @@ export function toHours(size: number, decimals?: DecimalCount): FormattedValue {
   }
 
   if (Math.abs(size) < 24) {
-    return { text: toFixed(size, decimals), suffix: ' hour' };
+    return { text: toFixed(size, decimals), suffix: ' ч' };
   } else if (Math.abs(size) < 168) {
-    return toFixedScaled(size / 24, decimals, ' day');
+    return toFixedScaled(size / 24, decimals, ' д');
   } else if (Math.abs(size) < 8760) {
-    return toFixedScaled(size / 168, decimals, ' week');
+    return toFixedScaled(size / 168, decimals, ' н');
   } else {
-    return toFixedScaled(size / 8760, decimals, ' year');
+    return toFixedScaled(size / 8760, decimals, ' г');
   }
 }
 
@@ -180,11 +180,11 @@ export function toDays(size: number, decimals?: DecimalCount): FormattedValue {
   }
 
   if (Math.abs(size) < 7) {
-    return { text: toFixed(size, decimals), suffix: ' day' };
+    return { text: toFixed(size, decimals), suffix: ' д' };
   } else if (Math.abs(size) < 365) {
-    return toFixedScaled(size / 7, decimals, ' week');
+    return toFixedScaled(size / 7, decimals, ' н');
   } else {
-    return toFixedScaled(size / 365, decimals, ' year');
+    return toFixedScaled(size / 365, decimals, ' г');
   }
 }
 
@@ -194,7 +194,7 @@ export function toDuration(size: number, decimals: DecimalCount, timeScale: Inte
   }
 
   if (size === 0) {
-    return { text: '0', suffix: ' ' + timeScale + 's' };
+    return { text: '0', suffix: ' ' + timeScale + ' сек.' };
   }
 
   if (size < 0) {
@@ -202,7 +202,7 @@ export function toDuration(size: number, decimals: DecimalCount, timeScale: Inte
     if (!v.suffix) {
       v.suffix = '';
     }
-    v.suffix += ' ago';
+    v.suffix += ' назад';
     return v;
   }
 
@@ -237,7 +237,7 @@ export function toDuration(size: number, decimals: DecimalCount, timeScale: Inte
     if (value >= 1 || decrementDecimals) {
       decrementDecimals = true;
       const floor = Math.floor(value);
-      const unit = units[i].long + (floor !== 1 ? 's' : '');
+      const unit = units[i].long; // + (floor !== 1 ? 's' : '');
       strings.push(floor + ' ' + unit);
       size = size % interval;
       decimalsCount--;
@@ -309,7 +309,7 @@ export function toDurationInHoursMinutesSeconds(size: number): FormattedValue {
     if (!v.suffix) {
       v.suffix = '';
     }
-    v.suffix += ' ago';
+    v.suffix += ' назад';
     return v;
   }
   const strings = [];
@@ -328,13 +328,13 @@ export function toDurationInDaysHoursMinutesSeconds(size: number): FormattedValu
     if (!v.suffix) {
       v.suffix = '';
     }
-    v.suffix += ' ago';
+    v.suffix += 'назад';
     return v;
   }
   let dayString = '';
   const numDays = Math.floor(size / (24 * 3600));
   if (numDays > 0) {
-    dayString = numDays + ' d ';
+    dayString = numDays + ' д ';
   }
   const hmsString = toDurationInHoursMinutesSeconds(size - numDays * 24 * 3600);
   return { text: dayString + hmsString.text };

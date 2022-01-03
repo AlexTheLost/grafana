@@ -57,7 +57,7 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
     value,
     onMoveBackward,
     onMoveForward,
-    // onZoom,
+    onZoom,
     timeZone,
     fiscalYearStartMonth,
     timeSyncButton,
@@ -102,7 +102,6 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
           narrow
         />
       )}
-
       {/* <Tooltip content={<TimePickerTooltip timeRange={value} timeZone={timeZone} />} placement="bottom"> */}
       <Tooltip content={<div></div>} placement="bottom">
         <ToolbarButton
@@ -149,18 +148,19 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
         />
       )}
 
-      {/* <Tooltip content={ZoomOutTooltip} placement="bottom">
-        <ToolbarButton aria-label="Zoom out time range" onClick={onZoom} icon="search-minus" variant={variant} />
-      </Tooltip> */}
+      <Tooltip content={ZoomOutTooltip} placement="bottom">
+        <ToolbarButton
+          aria-label="Уменьшить временной диапазон"
+          onClick={onZoom}
+          icon="search-minus"
+          variant={variant}
+        />
+      </Tooltip>
     </ButtonGroup>
   );
 }
 
-// const ZoomOutTooltip = () => (
-//   <>
-//     Time range zoom out <br /> CTRL+Z
-//   </>
-// );
+const ZoomOutTooltip = () => <>Уменьшить временной диапазон</>;
 
 // const TimePickerTooltip = ({ timeRange, timeZone }: { timeRange: TimeRange; timeZone?: TimeZone }) => {
 //   const theme = useTheme();

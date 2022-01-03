@@ -8,13 +8,13 @@ import { timeZoneAbbrevation, dateTimeFormat, dateTimeFormatTimeAgo } from './fo
 import { dateTimeParse } from './parser';
 
 const spans: { [key: string]: { display: string; section?: number } } = {
-  s: { display: 'second' },
-  m: { display: 'minute' },
-  h: { display: 'hour' },
-  d: { display: 'day' },
-  w: { display: 'week' },
-  M: { display: 'month' },
-  y: { display: 'year' },
+  s: { display: 'секунда' },
+  m: { display: 'минута' },
+  h: { display: 'час' },
+  d: { display: 'день' },
+  w: { display: 'неделя' },
+  M: { display: 'месяц' },
+  y: { display: 'год' },
 };
 
 const rangeOptions: TimeOption[] = [
@@ -151,7 +151,9 @@ export function describeTextRange(expr: any) {
  * @alpha
  */
 export function describeTimeRange(range: RawTimeRange, timeZone?: TimeZone): string {
-  const option = rangeIndex[range.from.toString() + ' to ' + range.to.toString()];
+  const to = 'до';
+
+  const option = rangeIndex[range.from.toString() + ` ${to} ` + range.to.toString()];
 
   if (option) {
     return option.display;
@@ -160,17 +162,17 @@ export function describeTimeRange(range: RawTimeRange, timeZone?: TimeZone): str
   const options = { timeZone };
 
   if (isDateTime(range.from) && isDateTime(range.to)) {
-    return dateTimeFormat(range.from, options) + ' to ' + dateTimeFormat(range.to, options);
+    return dateTimeFormat(range.from, options) + ` ${to} ` + dateTimeFormat(range.to, options);
   }
 
   if (isDateTime(range.from)) {
     const parsed = dateMath.parse(range.to, true, 'utc');
-    return parsed ? dateTimeFormat(range.from, options) + ' to ' + dateTimeFormatTimeAgo(parsed, options) : '';
+    return parsed ? dateTimeFormat(range.from, options) + ` ${to} ` + dateTimeFormatTimeAgo(parsed, options) : '';
   }
 
   if (isDateTime(range.to)) {
     const parsed = dateMath.parse(range.from, false, 'utc');
-    return parsed ? dateTimeFormatTimeAgo(parsed, options) + ' to ' + dateTimeFormat(range.to, options) : '';
+    return parsed ? dateTimeFormatTimeAgo(parsed, options) + ` ${to} ` + dateTimeFormat(range.to, options) : '';
   }
 
   if (range.to.toString() === 'now') {
@@ -178,7 +180,7 @@ export function describeTimeRange(range: RawTimeRange, timeZone?: TimeZone): str
     return res.display;
   }
 
-  return range.from.toString() + ' to ' + range.to.toString();
+  return range.from.toString() + ` ${to} ` + range.to.toString();
 }
 
 export const isValidTimeSpan = (value: string) => {

@@ -63,9 +63,14 @@ export const StateTimelinePanel: React.FC<TimelinePanelProps> = ({
         return null;
       }
 
+      const name = data[seriesIdx - 1].name;
+      if (!name) {
+        return null;
+      }
+
       return (
         <StateTimelineTooltip
-          data={data}
+          fieldDisplayName={name}
           alignedData={alignedData}
           seriesIdx={seriesIdx}
           datapointIdx={datapointIdx}
@@ -89,6 +94,11 @@ export const StateTimelinePanel: React.FC<TimelinePanelProps> = ({
     if (packet) {
       // console.log('STREAM Packet', packet);
     }
+  }
+
+  // console.log('frames', frames);
+  for (let i = 0; i < frames.length; i++) {
+    frames[i].fields[1].config.displayNameFromDS = `№ ${i + 1}`;
   }
 
   return (

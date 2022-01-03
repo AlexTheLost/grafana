@@ -4,7 +4,7 @@ import {
   FALLBACK_COLOR,
   formattedValueToString,
   getDisplayProcessor,
-  getFieldDisplayName,
+  // getFieldDisplayName,
   getValueFormat,
   TimeZone,
 } from '@grafana/data';
@@ -12,7 +12,8 @@ import { SeriesTableRow, useTheme2 } from '@grafana/ui';
 import { findNextStateIndex } from './utils';
 
 interface StateTimelineTooltipProps {
-  data: DataFrame[];
+  fieldDisplayName: string;
+  // data: DataFrame[];
   alignedData: DataFrame;
   seriesIdx: number;
   datapointIdx: number;
@@ -20,7 +21,7 @@ interface StateTimelineTooltipProps {
 }
 
 export const StateTimelineTooltip: React.FC<StateTimelineTooltipProps> = ({
-  data,
+  fieldDisplayName,
   alignedData,
   seriesIdx,
   datapointIdx,
@@ -33,17 +34,18 @@ export const StateTimelineTooltip: React.FC<StateTimelineTooltipProps> = ({
 
   const field = alignedData.fields[seriesIdx!];
 
-  const dataFrameFieldIndex = field.state?.origin;
+  // const dataFrameFieldIndex = field.state?.origin;
   const fieldFmt = field.display || getDisplayProcessor({ field, timeZone, theme });
   const value = field.values.get(datapointIdx!);
   const display = fieldFmt(value);
-  const fieldDisplayName = dataFrameFieldIndex
-    ? getFieldDisplayName(
-        data[dataFrameFieldIndex.frameIndex].fields[dataFrameFieldIndex.fieldIndex],
-        data[dataFrameFieldIndex.frameIndex],
-        data
-      )
-    : null;
+  // const fieldDisplayName = dataFrameFieldIndex ? data[dataFrameFieldIndex.frameIndex].name : null;
+  // const fieldDisplayName = dataFrameFieldIndex
+  //   ? getFieldDisplayName(
+  //       data[dataFrameFieldIndex.frameIndex].fields[dataFrameFieldIndex.fieldIndex],
+  //       data[dataFrameFieldIndex.frameIndex],
+  //       data
+  //     )
+  //   : null;
 
   const nextStateIdx = findNextStateIndex(field, datapointIdx!);
   let nextStateTs;
@@ -61,12 +63,12 @@ export const StateTimelineTooltip: React.FC<StateTimelineTooltipProps> = ({
     durationFragment = (
       <>
         <br />
-        <strong>Duration:</strong> {duration}
+        <strong>Длительность:</strong> {duration}
       </>
     );
     toFragment = (
       <>
-        {' to'} <strong>{xFieldFmt(xField.values.get(nextStateIdx!)).text}</strong>
+        {' до'} <strong>{xFieldFmt(xField.values.get(nextStateIdx!)).text}</strong>
       </>
     );
   }
@@ -76,7 +78,8 @@ export const StateTimelineTooltip: React.FC<StateTimelineTooltipProps> = ({
       {fieldDisplayName}
       <br />
       <SeriesTableRow label={display.text} color={display.color || FALLBACK_COLOR} isActive />
-      From <strong>{xFieldFmt(xField.values.get(datapointIdx!)).text}</strong>
+      {'с '}
+      <strong>{xFieldFmt(xField.values.get(datapointIdx!)).text}</strong>
       {toFragment}
       {durationFragment}
     </div>

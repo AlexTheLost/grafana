@@ -66,6 +66,7 @@ export class TimelineChart extends React.Component<TimelineProps> {
   };
 
   render() {
+    console.log(this.props);
     return (
       <GraphNG
         {...this.props}

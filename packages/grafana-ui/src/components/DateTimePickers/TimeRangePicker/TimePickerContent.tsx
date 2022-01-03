@@ -264,7 +264,7 @@ const NarrowScreenForm: React.FC<FormProps> = (props) => {
           aria-expanded={!collapsed}
           aria-controls="expanded-timerange"
         >
-          <TimePickerTitle>Указать диапазон</TimePickerTitle>
+          <TimePickerTitle>Указать временной диапазон</TimePickerTitle>
           {!hideQuickRanges && <Icon name={!collapsed ? 'angle-up' : 'angle-down'} />}
         </button>
       </div>
