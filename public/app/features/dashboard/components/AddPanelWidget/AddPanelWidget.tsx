@@ -273,7 +273,7 @@ const getStyles = (theme: GrafanaTheme2) => {
       font-weight: ${theme.typography.fontWeightMedium};
       padding-left: ${theme.spacing(1)};
       transition: background-color 0.1s ease-in-out;
-      cursor: move;
+      // cursor: move;
 
       &:hover {
         background: ${theme.colors.background.secondary};

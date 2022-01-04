@@ -26,7 +26,7 @@ export const FilterInput = React.forwardRef<HTMLInputElement, Props>(
             e.stopPropagation();
           }}
         >
-          Clear
+          Очистить
         </Button>
       ) : null;
 

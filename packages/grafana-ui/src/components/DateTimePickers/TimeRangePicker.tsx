@@ -31,6 +31,7 @@ import { FocusScope } from '@react-aria/focus';
 /** @public */
 export interface TimeRangePickerProps extends Themeable {
   hideText?: boolean;
+  hasAbsolute?: boolean;
   value: TimeRange;
   timeZone?: TimeZone;
   fiscalYearStartMonth?: number;
@@ -91,6 +92,8 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
   const hasAbsolute = isDateTime(value.raw.from) || isDateTime(value.raw.to);
   const variant = isSynced ? 'active' : 'default';
 
+  const _autoFocus = false;
+
   return (
     <ButtonGroup className={styles.container}>
       {hasAbsolute && (
@@ -112,13 +115,14 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
           icon="clock-nine"
           isOpen={isOpen}
           variant={variant}
+          iconOnly={false}
         >
-          <TimePickerButtonLabel {...props} />
+          <TimePickerButtonLabel hasAbsolute={hasAbsolute} {...props} />
         </ToolbarButton>
       </Tooltip>
 
       {isOpen && (
-        <FocusScope contain autoFocus restoreFocus>
+        <FocusScope contain autoFocus={_autoFocus} restoreFocus>
           <section ref={ref} {...overlayProps}>
             <TimePickerContent
               timeZone={timeZone}
@@ -178,19 +182,38 @@ const ZoomOutTooltip = () => <>Уменьшить временной диапа�
 //   );
 // };
 
-type LabelProps = Pick<TimeRangePickerProps, 'hideText' | 'value' | 'timeZone'>;
+type LabelProps = Pick<TimeRangePickerProps, 'hideText' | 'value' | 'timeZone' | 'hasAbsolute'>;
 
-export const TimePickerButtonLabel = memo<LabelProps>(({ hideText, value, timeZone }) => {
+export const TimePickerButtonLabel = memo<LabelProps>(({ hideText, hasAbsolute, value, timeZone }) => {
   const theme = useTheme();
   const styles = getLabelStyles(theme);
 
-  if (hideText) {
-    return null;
+  // if (hideText) {
+  //   return null;
+  // }
+
+  let _style = css`
+    padding-left: 5px;
+  `;
+
+  if (hasAbsolute) {
+    _style = css`
+      padding-left: 5px;
+      @media only screen and (max-width: 600px) {
+        padding-left: 0px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px;
+      }
+    `;
   }
+
+  let text = formattedRange(value, timeZone);
 
   return (
     <span className={styles.container}>
-      <span>{formattedRange(value, timeZone)}</span>
+      <span className={_style}>{text}</span>
       {/* <span className={styles.utc}>{rangeUtil.describeTimeRangeAbbreviation(value, timeZone)}</span> */}
     </span>
   );

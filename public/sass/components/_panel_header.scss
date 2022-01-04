@@ -1,10 +1,10 @@
 $panel-header-no-title-zindex: 1;
 
 .panel-header {
-  &:hover {
-    transition: background-color 0.1s ease-in-out;
-    background-color: $panel-header-hover-bg;
-  }
+  // &:hover {
+  // transition: background-color 0.1s ease-in-out;
+  // background-color: $panel-header-hover-bg;
+  // }
 }
 
 .panel-container--no-title {
@@ -25,7 +25,7 @@ $panel-header-no-title-zindex: 1;
 }
 
 .panel-title-container {
-  cursor: move;
+  // cursor: move;
   word-wrap: break-word;
   display: block;
 }

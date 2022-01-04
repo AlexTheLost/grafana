@@ -99,6 +99,7 @@ export const StateTimelinePanel: React.FC<TimelinePanelProps> = ({
   // console.log('frames', frames);
   for (let i = 0; i < frames.length; i++) {
     frames[i].fields[1].config.displayNameFromDS = `№ ${i + 1}`;
+    // frames[i].fields[1].config.displayNameFromDS = ` `;
   }
 
   return (

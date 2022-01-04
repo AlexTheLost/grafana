@@ -67,7 +67,7 @@ export const ToolbarButton = forwardRef<HTMLButtonElement, Props>(
 
     const contentStyles = cx({
       [styles.content]: true,
-      [styles.contentWithIcon]: !!icon,
+      [styles.contentWithIcon]: !!iconOnly,
       [styles.contentWithRightIcon]: isOpen !== undefined,
     });
 

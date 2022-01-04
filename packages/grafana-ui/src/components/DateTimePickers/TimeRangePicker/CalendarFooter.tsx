@@ -11,10 +11,10 @@ export function Footer({ onClose, onApply }: TimePickerCalendarProps) {
   return (
     <div className={styles.container}>
       <Button className={styles.apply} onClick={onApply}>
-        Apply time range
+        Применить
       </Button>
       <Button variant="secondary" onClick={onClose}>
-        Cancel
+        Отменить
       </Button>
     </div>
   );

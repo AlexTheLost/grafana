@@ -265,15 +265,15 @@ class LegendTable extends PureComponent<Partial<LegendComponentProps>> {
 
     const legendStatLocalize = function (statName: string): string {
       if (statName === 'min') {
-        return 'мин';
+        return 'Мин';
       } else if (statName === 'max') {
-        return 'макc';
+        return 'Макc';
       } else if (statName === 'avg') {
-        return 'среднее';
+        return 'Среднее';
       } else if (statName === 'current') {
-        return 'текущее';
+        return 'Текущее';
       } else if (statName === 'total') {
-        return 'накопленное';
+        return 'Накопленное';
       }
       return '';
     };

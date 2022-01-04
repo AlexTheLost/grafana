@@ -2,7 +2,7 @@ import React, { FormEvent, memo } from 'react';
 import { css } from '@emotion/css';
 import { DateTime, GrafanaTheme2, TimeZone } from '@grafana/data';
 import { useTheme2 } from '../../../themes';
-import { Header } from './CalendarHeader';
+// import { Header } from './CalendarHeader';
 import { Portal } from '../../Portal/Portal';
 import { selectors } from '@grafana/e2e-selectors';
 import { FocusScope } from '@react-aria/focus';
@@ -37,7 +37,7 @@ export const getStyles = (theme: GrafanaTheme2, isReversed = false) => {
     modal: css`
       position: fixed;
       top: 20%;
-      left: 25%;
+      left: 2%;
       width: 100%;
       z-index: ${theme.zIndex.modal};
     `,
@@ -101,7 +101,7 @@ function TimePickerCalendar(props: TimePickerCalendarProps) {
           ref={ref}
           {...overlayProps}
         >
-          <Header {...props} />
+          {/* <Header {...props} /> */}
           <Body {...props} />
         </section>
       </FocusScope>
@@ -113,7 +113,7 @@ function TimePickerCalendar(props: TimePickerCalendarProps) {
       <FocusScope contain autoFocus restoreFocus>
         <section className={styles.modal} onClick={stopPropagation} ref={ref} {...overlayProps}>
           <div className={styles.content} aria-label={selectors.components.TimePicker.calendar.label}>
-            <Header {...props} />
+            {/* <Header {...props} /> */}
             <Body {...props} />
             <Footer {...props} />
           </div>

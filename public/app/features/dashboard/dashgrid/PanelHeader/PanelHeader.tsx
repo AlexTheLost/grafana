@@ -90,7 +90,6 @@ const panelStyles = (theme: GrafanaTheme2) => {
       overflow: hidden;
       white-space: nowrap;
       max-width: calc(100% - 38px);
-      cursor: pointer;
       font-weight: ${theme.typography.fontWeightMedium};
       font-size: ${theme.typography.body.fontSize};
       margin: 0;
