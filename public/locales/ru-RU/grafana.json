@@ -716,7 +716,7 @@
     },
     "annotations": {
       "dashboard-annotation-field": {
-        "dashboard": "Дашборд {{dashboardUid}}",
+        "dashboard": "!Дашборд {{dashboardUid}}",
         "panel": "Панель {{panelId}}"
       },
       "description": "Добавьте больше контекста к уведомлениям об оповещении.",
@@ -988,8 +988,8 @@
     "create-metadata": {
       "label": {
         "contact-point": "Точка контакта для доставки уведомлений",
-        "dashboard": "Дашборд",
-        "dashboard-and-panel": "Дашборд и панель",
+        "dashboard": "!Дашборд",
+        "dashboard-and-panel": "!Дашборд и панель",
         "evaluation-interval": "Интервал оценки",
         "labels": "Метки",
         "metric-name": "Название метрики",
@@ -1018,9 +1018,9 @@
     },
     "dashboard-picker": {
       "confirm": "Подтвердить",
-      "current-selection-dashboard": "Дашборд: {{dashboardTitle}} ({{ dashboardUid }}) в папке {{ folderTitle }}",
+      "current-selection-dashboard": "!Дашборд: {{dashboardTitle}} ({{ dashboardUid }}) в папке {{ folderTitle }}",
       "current-selection-panel": "Панель: {{ panelTitle }} ({{ panelId }})",
-      "fallback-dashboards-string": "Дашборды",
+      "fallback-dashboards-string": "!Дашборды",
       "panel-row": {
         "content-panel-valid-identifier": "У этой панели нет действительного идентификатора.",
         "tooltip-alert-tab-support": "Вкладка и аннотации оповещений поддерживаются только на панелях графов и временных рядов."
@@ -2257,7 +2257,7 @@
       },
       "failed-to-load-error": "Не удалось загрузить состояние правил Grafana: {{error}}",
       "text-loading-rules": "Загрузка правил...",
-      "title-dashboard-not-saved": "Дашборд не сохранен"
+      "title-dashboard-not-saved": "!Дашборд не сохранен"
     },
     "payload-editor": {
       "edit-payload": "Редактировать полезные данные",
@@ -2909,7 +2909,7 @@
       "configured-alert-rules": "Источники данных, содержащие настроенные правила оповещений принадлежат к источникам Mimir или Loki, где правила оповещения хранятся и оцениваются в самом источнике данных.",
       "contact-point-tooltip": "Этот фильтр позволяет просматривать правила оповещений, которые направляются непосредственно в выбранную точку контакта. Правила, направленные в политики уведомлений, отображаться не будут.",
       "contact-point-tooltip-title": "Информация о фильтре по точкам контакта",
-      "dashboard": "Дашборд",
+      "dashboard": "!Дашборд",
       "data-source-picker-inline-help-title-search-by-data-sources-help": "Справка по поиску по источникам данных",
       "filter-options": {
         "aria-label": "Параметры фильтра",
@@ -3521,7 +3521,7 @@
     "category-link-behaviour": "Поведение ссылок",
     "description-tags": "Сопоставить теги аннотаций",
     "link-target-options": {
-      "label-dashboard": "Дашборд",
+      "label-dashboard": "!Дашборд",
       "label-panel": "Панель"
     },
     "name-limit": "Лимит",
@@ -4036,14 +4036,14 @@
       "empty-message": "Папки не найдены",
       "error-title": "Ошибка загрузки папок",
       "non-folder-item": "{{itemKind}} {{itemUID}} не является папкой",
-      "root-title": "Дашборды",
+      "root-title": "!Дашборды",
       "search-placeholder": "Поиск папок",
       "shared-with-me": "",
       "unknown-error": "Неизвестная ошибка"
     },
     "manage-folder-nav": {
       "alert-rules": "Правила оповещения",
-      "dashboards": "Дашборды",
+      "dashboards": "!Дашборды",
       "panels": "Панели"
     },
     "name-cell": {
@@ -4550,7 +4550,7 @@
     },
     "section": {
       "actions": "Действия",
-      "dashboard-search-results": "Дашборды",
+      "dashboard-search-results": "!Дашборды",
       "folder-search-results": "Папки",
       "pages": "Страницы",
       "preferences": "Настройки",
@@ -5037,7 +5037,7 @@
       "body-plugin-dashboard": "",
       "cancel": "Отмена",
       "overwrite": "Перезаписать",
-      "title-plugin-dashboard": "Дашборд плагинов"
+      "title-plugin-dashboard": "!Дашборд плагинов"
     },
     "controls": {
       "menu": {
@@ -5059,7 +5059,7 @@
       }
     },
     "dashboard-links-menu": {
-      "aria-label-dashboard-name": "Дашборд {{dashboardName}}",
+      "aria-label-dashboard-name": "!Дашборд {{dashboardName}}",
       "label-no-dashboards-found": ""
     },
     "dashboard-loading": {
@@ -5172,7 +5172,7 @@
     },
     "edit-pane": {
       "elements": {
-        "dashboard": "Дашборд",
+        "dashboard": "!Дашборд",
         "element": "Элемент",
         "local-variable": "Локальная переменная",
         "multiple-elements": "Несколько элементов",
@@ -5499,7 +5499,7 @@
     "legacy-dashboard-api": {
       "fetch-error": {
         "message": {
-          "dashboard-not-found": "Дашборд не найден"
+          "dashboard-not-found": "!Дашборд не найден"
         }
       }
     },
@@ -5617,7 +5617,7 @@
     },
     "public-dashboard-not-available": {
       "does-not-exist": "Страница, которую вы пытаетесь открыть, не существует",
-      "paused": "Дашборд приостановлен администратором",
+      "paused": "!Дашборд приостановлен администратором",
       "try-again-later": "Повторите попытку позже"
     },
     "remove-panel": {
@@ -5707,7 +5707,7 @@
       "ungroup-convert-title": ""
     },
     "save-dashboard": {
-      "message-dashboard-saved": "Дашборд сохранен"
+      "message-dashboard-saved": "!Дашборд сохранен"
     },
     "save-dashboard-as-button": {
       "save-as": "Сохранить как"
@@ -5758,7 +5758,7 @@
     },
     "save-provisioned-dashboard-form": {
       "cancel": "Отмена",
-      "cannot-be-saved": "Дашборд невозможно сохранить из пользовательского интерфейса Grafana, поскольку он подготовлен в другом источнике. Скопируйте модель JSON или сохраните ее в файл ниже. Затем можно обновить свой дашборд в источнике подготовки.",
+      "cannot-be-saved": "!Дашборд невозможно сохранить из пользовательского интерфейса Grafana, поскольку он подготовлен в другом источнике. Скопируйте модель JSON или сохраните ее в файл ниже. Затем можно обновить свой дашборд в источнике подготовки.",
       "copy-json-to-clipboard": "Копировать JSON в буфер обмена",
       "file-path": "",
       "save-json-to-file": "Сохранить модель JSON в файл",
@@ -5873,7 +5873,7 @@
       },
       "enter-edit-mode": {
         "label": "Сделать доступным для редактирования",
-        "tooltip": "Дашборд был помечен как «только для чтения»"
+        "tooltip": "!Дашборд был помечен как «только для чтения»"
       },
       "exit-edit-mode": {
         "label": "Выйти из режима редактирования",
@@ -5894,7 +5894,7 @@
         },
         "enter-edit-mode": {
           "label": "Сделать доступным для редактирования",
-          "tooltip": "Дашборд был помечен как «только для чтения»"
+          "tooltip": "!Дашборд был помечен как «только для чтения»"
         },
         "export": {
           "tooltip": {
@@ -6207,7 +6207,7 @@
         "existing-dashboard": "Существующий дашборд",
         "new-dashboard": "Новый дашборд"
       },
-      "label-dashboard": "Дашборд",
+      "label-dashboard": "!Дашборд",
       "label-target-dashboard": "Целевой дашборд",
       "message": {
         "this-field-is-required": "Поле является обязательным."
@@ -6323,7 +6323,7 @@
       "label-with-tags": "С тегами",
       "link-type-options": {
         "label": {
-          "dashboards": "Дашборды",
+          "dashboards": "!Дашборды",
           "link": "Ссылка"
         }
       },
@@ -6340,7 +6340,7 @@
     },
     "dashboard-preview-banner": {
       "not-yet-saved": "Значение не сохранено в базе данных Grafana",
-      "title-dashboard-loaded-external-repository": "Дашборд загружается из внешнего репозитория",
+      "title-dashboard-loaded-external-repository": "!Дашборд загружается из внешнего репозитория",
       "title-error-loading-dashboard": "Ошибка при загрузке дашборда"
     },
     "dashboard-scene": {
@@ -6360,19 +6360,19 @@
         "view-panel": "Просмотр панели"
       },
       "title": {
-        "dashboard": "Дашборд",
+        "dashboard": "!Дашборд",
         "discard-changes-to-dashboard": "Отменить изменения на дашборде?",
         "unsaved-changes-question": ""
       }
     },
     "dashboard-scene-page-state-manager": {
       "message": {
-        "dashboard-not-found": "Дашборд не найден"
+        "dashboard-not-found": "!Дашборд не найден"
       }
     },
     "dashboard-scene-page-state-manager-v2": {
       "message": {
-        "dashboard-not-found": "Дашборд не найден"
+        "dashboard-not-found": "!Дашборд не найден"
       }
     },
     "data-source-variable-form": {
@@ -6396,7 +6396,7 @@
       "delete-action": "Удалить дашборд",
       "deleting": "Удаление...",
       "drawer-title": "Удалить подготовленный дашборд",
-      "success-message": "Дашборд удален"
+      "success-message": "!Дашборд удален"
     },
     "description-label": {
       "description": "Описание"
@@ -6508,7 +6508,7 @@
       "copy-to-clipboard": "Копировать в буфер обмена",
       "description-randomize-data": "Измените исходные данные, чтобы скрыть конфиденциальную информацию. Обратите внимание, что длина останется прежней, а повторяющиеся значения будут равными.",
       "description-support-snapshot": "Панель: {{panelTitle}}.",
-      "download-dashboard": "Дашборд ({{snapshotSize}})",
+      "download-dashboard": "!Дашборд ({{snapshotSize}})",
       "download-snapshot": "Загрузить ({{snapshotSize}})",
       "label-randomize-data": "Рандомизировать данные",
       "label-support-snapshot": "Поддержка снимков",
@@ -6561,8 +6561,8 @@
       "render-save-button-and-error": {
         "body-plugin-dashboard": "",
         "title-failed-to-save-dashboard": "Не удалось сохранить дашборд",
-        "title-plugin-dashboard": "Дашборд плагинов",
-        "title-someone-else-has-updated-this-dashboard": "Дашборд обновлен другим пользователем",
+        "title-plugin-dashboard": "!Дашборд плагинов",
+        "title-someone-else-has-updated-this-dashboard": "!Дашборд обновлен другим пользователем",
         "would-still-dashboard": "Все равно сохранить дашборд?"
       },
       "save-and-overwrite": ""
@@ -6589,14 +6589,14 @@
       "file-load-error": "Ошибка при загрузке дашборда",
       "loading-dashboard-data": "",
       "move-action": "Переместить дашборд",
-      "move-read-only-message": "Дашборд невозможно переместить непосредственно из Grafana, поскольку репозиторий доступен только для чтения. Чтобы переместить этот дашборд, переместите файл в репозиторий Git.",
+      "move-read-only-message": "!Дашборд невозможно переместить непосредственно из Grafana, поскольку репозиторий доступен только для чтения. Чтобы переместить этот дашборд, переместите файл в репозиторий Git.",
       "moving": "Перемещение...",
-      "success-message": "Дашборд перемещен",
+      "success-message": "!Дашборд перемещен",
       "target-path-label": "Целевой путь",
       "title-this-repository-is-read-only": "Репозиторий предназначен только для чтения"
     },
     "name-already-exists-error": {
-      "body-name-already-exists": "Дашборд с таким названием уже существует в выбранной папке. Все равно сохранить дашборд?",
+      "body-name-already-exists": "!Дашборд с таким названием уже существует в выбранной папке. Все равно сохранить дашборд?",
       "title-name-already-exists": "Название уже существует"
     },
     "on-open-snapshot-original-dashboard": {
@@ -6629,7 +6629,7 @@
       },
       "error-failed-to-load": "Не удалось загрузить состояние правил Grafana: {{errorToDisplay}}",
       "text-loading-rules": "Загрузка правил...",
-      "title-dashboard-not-saved": "Дашборд не сохранен"
+      "title-dashboard-not-saved": "!Дашборд не сохранен"
     },
     "panel-data-queries-tab": {
       "tab-label": "Запросы"
@@ -6687,7 +6687,7 @@
       "title-close": "Закрыть"
     },
     "provisioned-delete-modal": {
-      "cannot-be-deleted": "Дашборд управляется функцией подготовки Grafana и не может быть удален. Чтобы удалить дашборд, его необходимо удалить из файла конфигурации.",
+      "cannot-be-deleted": "!Дашборд управляется функцией подготовки Grafana и не может быть удален. Чтобы удалить дашборд, его необходимо удалить из файла конфигурации.",
       "file-path": "Путь к файлу: {{dashboardId}}",
       "ok": "OK",
       "see-docs": "Подробнее о подготовке см. в <2>документации</2>.",
@@ -6765,7 +6765,7 @@
     },
     "save-dashboard-form": {
       "aria-label-message": "сообщение",
-      "body-dashboard-drastically-changed": "Дашборд будет сохранен с использованием новой экспериментальной схемы дашбордов Grafana. Действие нельзя отменить, и оно может привести к необратимой потере данных. Рекомендуем сохранить дашборд как копию. Если вы видите это сообщение в рабочей среде, обратитесь в службу поддержки, чтобы отключить функцию.",
+      "body-dashboard-drastically-changed": "!Дашборд будет сохранен с использованием новой экспериментальной схемы дашбордов Grafana. Действие нельзя отменить, и оно может привести к необратимой потере данных. Рекомендуем сохранить дашборд как копию. Если вы видите это сообщение в рабочей среде, обратитесь в службу поддержки, чтобы отключить функцию.",
       "cancel-button": {
         "cancel": "Отмена"
       },
@@ -6775,13 +6775,13 @@
         "body-plugin-dashboard": "",
         "no-changes-to-save": "Нет изменений для сохранения",
         "title-failed-to-save-dashboard": "Не удалось сохранить дашборд",
-        "title-plugin-dashboard": "Дашборд плагинов",
-        "title-someone-else-has-updated-this-dashboard": "Дашборд обновлен другим пользователем",
+        "title-plugin-dashboard": "!Дашборд плагинов",
+        "title-someone-else-has-updated-this-dashboard": "!Дашборд обновлен другим пользователем",
         "would-still-dashboard": "Все равно сохранить дашборд?"
       },
       "schema-v2-library-panels-export": "Из-за ограничений в новой схеме дашборда (V2) панели библиотеки будут преобразованы в обычные панели со встроенным содержимым во время внешнего экспорта.",
       "schema-v2-library-panels-export-title": "Панели библиотеки будут преобразованы в обычные панели",
-      "title-dashboard-drastically-changed": "Дашборд необратимо изменен"
+      "title-dashboard-drastically-changed": "!Дашборд необратимо изменен"
     },
     "save-dashboard-form-common-options": {
       "save-refresh-description-current-refresh-default": "Текущее обновление станет новым значением по умолчанию",
@@ -6808,7 +6808,7 @@
     "save-provisioned-dashboard-form": {
       "api-error": "Ошибка при сохранении дашборда",
       "cancel": "Отмена",
-      "cannot-be-saved": "Дашборд невозможно сохранить из пользовательского интерфейса Grafana, поскольку он подготовлен в другом источнике. Скопируйте модель JSON или сохраните ее в файл ниже. Затем можно обновить свой дашборд в источнике подготовки.",
+      "cannot-be-saved": "!Дашборд невозможно сохранить из пользовательского интерфейса Grafana, поскольку он подготовлен в другом источнике. Скопируйте модель JSON или сохраните ее в файл ниже. Затем можно обновить свой дашборд в источнике подготовки.",
       "copy-json-to-clipboard": "Копировать JSON в буфер обмена",
       "file-path": "",
       "label-description": "Описание",
@@ -6919,7 +6919,7 @@
       }
     },
     "use-save-dashboard": {
-      "message-dashboard-saved": "Дашборд сохранен"
+      "message-dashboard-saved": "!Дашборд сохранен"
     },
     "variable-check-indicator": {
       "aria-label-variable-referenced-dashboard": "На эту переменную не ссылается ни одна переменная или дашборд",
@@ -7102,7 +7102,7 @@
     },
     "provisioned-delete-modal": {
       "confirm-button": "OK",
-      "text-1": "Дашборд управляется функцией подготовки Grafana и не может быть удален. Чтобы удалить дашборд, его необходимо удалить из файла конфигурации.",
+      "text-1": "!Дашборд управляется функцией подготовки Grafana и не может быть удален. Чтобы удалить дашборд, его необходимо удалить из файла конфигурации.",
       "text-2": "",
       "text-3": "Путь к файлу: {{provisionedId}}",
       "text-link": "Перейти на страницу документации",
@@ -7268,7 +7268,7 @@
         }
       },
       "text": {
-        "dashboards": "Дашборды"
+        "dashboards": "!Дашборды"
       }
     },
     "button-row": {
@@ -9892,7 +9892,7 @@
       "keys": "Ключи"
     },
     "shortcuts-category": {
-      "dashboard": "Дашборд",
+      "dashboard": "!Дашборд",
       "focused-panel": "Сфокусированная панель",
       "global": "Общее",
       "time-range": "Временной диапазон"
@@ -10200,7 +10200,7 @@
       "message": "Панели библиотеки не найдены"
     },
     "folder-link": {
-      "dashboards": "Дашборды"
+      "dashboards": "!Дашборды"
     },
     "has-connected-dashboards": {
       "dashboard-name": "Название дашборда"
@@ -10224,7 +10224,7 @@
       "button-view-panel1": "Просмотр панели в {{label}}...",
       "button-view-panel2": "Просмотр панели на дашборде...",
       "panel-not-linked": "Панель не привязана к дашборду. Добавьте панель на дашборд и повторите попытку.",
-      "select-no-options-message": "Дашборды не найдены",
+      "select-no-options-message": "!Дашборды не найдены",
       "select-placeholder": "Начните вводить текст для поиска дашборда",
       "title": "Просмотр панели на дашборде...",
       "body_one": "Эта панель используется на {{count}} дашборде. Выберите дашборд для просмотра панели:",
@@ -10274,9 +10274,9 @@
   "live": {
     "dashboard-changed-modal": {
       "continue-editing": "Продолжить редактирование",
-      "description": "Дашборд был обновлен в рамках другого сеанса. Продолжить редактирование или отменить локальные изменения?",
+      "description": "!Дашборд был обновлен в рамках другого сеанса. Продолжить редактирование или отменить локальные изменения?",
       "discard-local-changes": "Отменить локальные изменения",
-      "title-dashboard-changed": "Дашборд изменен"
+      "title-dashboard-changed": "!Дашборд изменен"
     },
     "live-channel-editor": {
       "description-grafana-live": "Поддерживает потоки событий в реальном времени в ядре Grafana. Функция находится в стадии активной разработки. Будьте готовы к тому, что интерфейсы и структуры будут меняться по мере готовности к использованию в рабочей среде.",
@@ -10746,7 +10746,7 @@
     "validation-srv": {
       "message-name-required": "Требуется ввести имя",
       "message-reserved-name": "Это имя зарезервировано, его нельзя использовать для папки.",
-      "message-same-name": "Дашборд или папка с таким именем уже существует",
+      "message-same-name": "!Дашборд или папка с таким именем уже существует",
       "message-same-name-current-folder": "В текущей папке уже существует дашборд или папка с таким именем",
       "message-same-name-general": "В корневой папке уже существует папка или дашборд с таким именем"
     }
@@ -10807,7 +10807,7 @@
       "header": "Управление вашим стеком Grafana"
     },
     "dashboard-info": {
-      "dashboard": "Дашборд {{dashboardUID}}"
+      "dashboard": "!Дашборд {{dashboardUID}}"
     },
     "delete-migration-token-confirm": {
       "body": "Если вы уже использовали этот токен для автономного экземпляра, то он больше не сможет загружать контент.",
@@ -10904,7 +10904,7 @@
       "error-messages": {
         "alert-rules-group-quota-reached": "Достигнуто максимальное количество групп правил оповещения. Удалите некоторые группы правил оповещения или обновите свой план и повторите попытку.",
         "alert-rules-quota-reached": "Достигнуто максимальное количество правил оповещения. Удалите некоторые правила оповещения или обновите свой план и повторите попытку.",
-        "dashboard-already-managed": "Дашборд уже подготовлен в облачном экземпляре и управляется Grafana. Рекомендуем в будущем использовать подготовленный дашборд. Если вы всё же хотите скопировать дашборд в облачный экземпляр, измените его идентификатор в JSON-файле, сохраните новый снимок и загрузите его снова.",
+        "dashboard-already-managed": "!Дашборд уже подготовлен в облачном экземпляре и управляется Grafana. Рекомендуем в будущем использовать подготовленный дашборд. Если вы всё же хотите скопировать дашборд в облачный экземпляр, измените его идентификатор в JSON-файле, сохраните новый снимок и загрузите его снова.",
         "datasource-already-managed": "Источник данных уже подготовлен в облачном экземпляре и управляется Grafana. Если это другой ресурс, установите другой UID и повторите попытку.",
         "datasource-invalid-url": "Существует источник данных с недопустимым URL-адресом. Укажите действительный URL-адрес и повторите попытку.",
         "datasource-name-conflict": "В целевом экземпляре есть источник данных с таким же именем. Переименуйте один из них и повторите попытку.",
@@ -10944,7 +10944,7 @@
       "alert_rule": "Правило оповещения",
       "alert_rule_group": "Группа правил оповещения",
       "contact_point": "Точка контакта",
-      "dashboard": "Дашборд",
+      "dashboard": "!Дашборд",
       "datasource": "Источник данных",
       "folder": "Папка",
       "library_element": "Элемент библиотеки",
@@ -10958,7 +10958,7 @@
       "alert_rule": "Правила оповещения",
       "alert_rule_group": "Группы правил оповещения",
       "contact_point": "Точки контакта",
-      "dashboard": "Дашборды",
+      "dashboard": "!Дашборды",
       "datasource": "Источники данных",
       "folder": "Папки",
       "library_element": "Элементы библиотеки",
@@ -11123,7 +11123,7 @@
       "title": "Новое правило оповещения"
     },
     "create-dashboard": {
-      "title": "Дашборд"
+      "title": "!Дашборд"
     },
     "create-folder": {
       "title": "Папка"
@@ -11133,7 +11133,7 @@
     },
     "dashboards": {
       "subtitle": "Создание дашбордов для визуализации данных и управление ими",
-      "title": "Дашборды"
+      "title": "!Дашборды"
     },
     "data-sources": {
       "subtitle": "Просмотр и управление подключениями к источникам данных",
@@ -11490,12 +11490,12 @@
       "description": "Полученные вами уведомления будут отображаться здесь.",
       "title": "Вы всё прочитали!"
     },
-    "starred-dashboard": "Дашборд помечен",
+    "starred-dashboard": "!Дашборд помечен",
     "stored-notifications": {
       "dismiss-notifications": "Закрыть уведомления",
       "title-alert": "На этой странице отображаются предыдущие ошибки и предупреждения. После закрытия их невозможно восстановить"
     },
-    "unstarred-dashboard": "Дашборд удален из помеченных"
+    "unstarred-dashboard": "!Дашборд удален из помеченных"
   },
   "oauth": {
     "form": {
@@ -11766,7 +11766,7 @@
     "playlist-table-rows": {
       "aria-label-playlist-item": "Элемент плейлиста, {{itemType}}, {{itemValue}}",
       "multiple-dashboards-found": "Найдено несколько элементов: {{items}}",
-      "no-dashboards-found": "Дашборды не найдены",
+      "no-dashboards-found": "!Дашборды не найдены",
       "not-found": "{{items}} не найдены"
     },
     "start-modal": {
@@ -11806,7 +11806,7 @@
       "table-delete": "Удалить плейлист",
       "table-drag": "Перетащить для изменения порядка",
       "table-empty": "Плейлист пуст. Добавьте дашборды ниже.",
-      "table-heading": "Дашборды"
+      "table-heading": "!Дашборды"
     },
     "sub-title": "Плейлист циклически переключает предварительно выбранные дашборды. Плейлист может быть отличным средством, чтобы повысить уровень осведомленности о ситуации или просто продемонстрировать свои метрики команде или посетителям.",
     "title": "Редактирование плейлиста"
@@ -12093,7 +12093,7 @@
     "use-plugin-details-tabs": {
       "nav-model-children": {
         "text": {
-          "dashboards": "Дашборды"
+          "dashboards": "!Дашборды"
         }
       }
     },
@@ -12186,7 +12186,7 @@
     "title-loaded-pull-request-in-repo": "Этот ресурс загружается из ветви, которую вы только что создали в {{repoType}}, и виден только вам"
   },
   "provisioned-resource-request-handler": "Ресурс сохранен",
-  "provisioned-resource-request-handler-dashboard": "Дашборд сохранен",
+  "provisioned-resource-request-handler-dashboard": "!Дашборд сохранен",
   "provisioned-resource-request-handler-folder": "Папка создана",
   "provisioning": {
     "banner": {
@@ -12996,8 +12996,8 @@
       "public-share-type-option-label": "Все, у кого есть ссылка",
       "resume-access-button": "Возобновить доступ",
       "revoke-access-button": "Отозвать доступ",
-      "revoke-access-description": "Действительно отозвать доступ? Дашборд больше не допускает совместного использования.",
-      "unsupported-data-source-alert-desc": "Дашборд использует источники данных, которые не поддерживаются для совместно используемых дашбордов. Панели, которые используют следующие источники данных, могут работать неправильно: {{unsupportedDataSources}}."
+      "revoke-access-description": "Действительно отозвать доступ? !Дашборд больше не допускает совместного использования.",
+      "unsupported-data-source-alert-desc": "!Дашборд использует источники данных, которые не поддерживаются для совместно используемых дашбордов. Панели, которые используют следующие источники данных, могут работать неправильно: {{unsupportedDataSources}}."
     }
   },
   "public-dashboard-users-access-list": {
@@ -13264,7 +13264,7 @@
       "title": "Слишком длинное сообщение"
     },
     "name-exists": {
-      "message-info": "Дашборд с таким именем уже существует в выбранной папке, включая последние удаленные дашборды.",
+      "message-info": "!Дашборд с таким именем уже существует в выбранной папке, включая последние удаленные дашборды.",
       "message-suggestion": "Выберите другое имя или папку.",
       "title": "Такое имя дашборда уже существует"
     }
@@ -13336,7 +13336,7 @@
       "location-header": "Расположение",
       "name-header": "Имя",
       "tags-header": "Теги",
-      "type-dashboard": "Дашборд",
+      "type-dashboard": "!Дашборд",
       "type-folder": "Папка",
       "type-header": "Тип"
     },
@@ -13553,7 +13553,7 @@
       "render-alert": "Плагин визуализации изображений не установлен",
       "render-instructions": "Чтобы визуализировать изображение, необходимо установить <2>плагин визуализации изображений Grafana</2>. Чтобы установить плагин, обратитесь к своему администратору Grafana.",
       "rendered-image": "Прямая ссылка на визуализированное изображение",
-      "save-alert": "Дашборд не сохранен",
+      "save-alert": "!Дашборд не сохранен",
       "save-dashboard": "Чтобы визуализировать изображение панели, сначала необходимо сохранить дашборд.",
       "shorten-url": "Сократить URL-адрес",
       "time-range-description": "Преобразует текущий относительный временной диапазон в абсолютный.",
@@ -13664,7 +13664,7 @@
   },
   "shared-dashboard": {
     "delete-modal": {
-      "revoke-body-text": "Действительно отозвать доступ? Дашборд больше не допускает совместного использования.",
+      "revoke-body-text": "Действительно отозвать доступ? !Дашборд больше не допускает совместного использования.",
       "revoke-title": "Отзыв доступа"
     },
     "fields": {
@@ -13689,7 +13689,7 @@
   "shared-preferences": {
     "fields": {
       "home-dashboard-label": "Главный дашборд",
-      "home-dashboard-placeholder": "Дашборд по умолчанию",
+      "home-dashboard-placeholder": "!Дашборд по умолчанию",
       "language-preference-label": "Язык",
       "language-preference-placeholder": "Выбрать язык",
       "locale-preference-description": "Выберите свой регион, чтобы установить соответствующий формат даты, времени и чисел.",
@@ -14146,7 +14146,7 @@
   },
   "theme-preview": {
     "breadcrumbs": {
-      "dashboards": "Дашборды",
+      "dashboards": "!Дашборды",
       "home": "Главная"
     },
     "panel": {

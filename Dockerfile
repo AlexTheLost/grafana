@@ -55,6 +55,7 @@ COPY scripts scripts
 COPY emails emails
 
 # Set the build argument according to default or argument passed
+ENV NODE_OPTIONS="--max-old-space-size=8192"
 RUN yarn ${JS_YARN_BUILD_FLAG}
 
 # Golang build stage
